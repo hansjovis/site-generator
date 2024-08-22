@@ -1,0 +1,22 @@
+{
+  "name": "@hansjovis/static-site-generator",
+  "description": "Static site generator.",
+  "type": "module",
+  "main": "/index.js",
+  "version": "0.1.0",
+  "bin": {
+    "static-site-generate": "/bin/generate.js"
+  },
+  "scripts": {
+    "compile": "rm -rf ./dist && npx tsc",
+    "run": "node ./dist/generate.js --debug",
+    "test": "cd test && npx tsc && node --test ./dist/test"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.2",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@hansjovis/sharkdown": "file:../sharkdown"
+  }
+}
