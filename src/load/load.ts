@@ -4,8 +4,9 @@ import parse from "../parse/parse.js";
 import { readFile } from "fs/promises";
 import path from "path";
 import getFilePaths from "../util/getFilePaths.js";
+import Library from "../Library.js";
 
-export default async function load(directory: string, logger: Logger): Promise<Document[]> {
+export default async function load(directory: string, logger: Logger): Promise<Library> {
     const docs: Document[] = [];
     for (const filePath of await getFilePaths(directory)) {
         const relativePath = path.relative(directory, filePath);
@@ -19,5 +20,5 @@ export default async function load(directory: string, logger: Logger): Promise<D
 
         docs.push(document);
     }
-    return docs;
+    return new Library(docs);
 }
