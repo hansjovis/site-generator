@@ -18,12 +18,12 @@ export default async function load(directory: string, logger: Logger): Promise<L
         const source = await readFile(filePath, "utf-8");
         if (fileType === "md") {
             const document = parse(source);
-            document.meta.id = id;
+            document.meta['@id'] = id;
             docs.push(document);
         }
         else if(fileType === "json") {
             const entity = JSON.parse(source);
-            entity.id = id;
+            entity['@id'] = id;
             entities.push(entity);
         }
     }
