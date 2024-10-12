@@ -25,8 +25,8 @@ export default async function generate(config = defaultConfig) {
     logger.debug("Using config: ", config);
     logger.debug("Using templates: ", Object.keys(templates));
 
-    const documents = await load(config.paths.source, logger);
-    const bakedDocuments = await bake(documents, templates);
+    const library = await load(config.paths.source, logger);
+    const bakedDocuments = await bake(library, templates);
     await write(bakedDocuments, config, logger);
 }
 

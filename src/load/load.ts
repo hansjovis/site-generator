@@ -8,17 +8,24 @@ import Library from "../Library.js";
 
 export default async function load(directory: string, logger: Logger): Promise<Library> {
     const docs: Document[] = [];
+    const entities = [];
     for (const filePath of await getFilePaths(directory)) {
         const relativePath = path.relative(directory, filePath);
+        const [, id, fileType] = relativePath.match(/(.+)\.(.+)$/);
 
         logger.debug(`Parsing document "${relativePath}".`);
 
         const source = await readFile(filePath, "utf-8");
-        const document = parse(source);
-
-        document.meta.id = relativePath.replace(/\..+$/, "");;
-
-        docs.push(document);
+        if (fileType === "md") {
+            const document = parse(source);
+            document.meta.id = id;
+            docs.push(document);
+        }
+        else if(fileType === "json") {
+            const entity = JSON.parse(source);
+            entity.id = id;
+            entities.push(entity);
+        }
     }
-    return new Library(docs);
+    return new Library(docs, entities);
 }
