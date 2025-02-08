@@ -1,17 +1,24 @@
 
-# CD Generate 
+# Static Site Generator
 
-Generates a CoderDojo exercise in HTML form from a Markdown file.
+Generates a simple static website from a folder of markdown files, a folder of templates and a folder of assets.
 
-## Use:
-```
-node ./dist/generate.js [options]
-```
-
-## Options:
-| Name    | Type    | Default    | Description                                                   |
-| ------- | ------- | ---------- | ------------------------------------------------------------- |
-| `help`  | Boolean | `false`    | Show this help text and don't continue with the program.      |
-| `debug` | Boolean | `false`    | Whether to show debug information when running the generator. |
-| `src`   | String  | `src.md`   | Path to the source file.                                      |
-| `out`   | String  | `out.html` | Path to the output file.                                      |
+## Installation and use
+1. Clone this repository.
+    ```
+    git clone git@github.com:hansjovis/sharkdown.git
+    ```
+2. Install dependencies using NPM.
+    ```
+    npm install
+    ```
+3. Compile the source code.
+    ```
+    npm run compile
+    ```
+4. Run the generator on the example project.
+    ```
+    cd example
+    ../bin/generate
+    ```
+5. Open the result (`example/public/example.html`) in your browser of choice.

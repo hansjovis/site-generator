@@ -1,0 +1,9 @@
+{
+    "debug": true,
+    "paths": {
+        "source": "./source",
+        "build": "./public",
+        "templates": "./templates",
+        "lib": "./lib"
+    }
+}

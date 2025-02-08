@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    font-size: 2rem;
+
+    background-image: url(https://picsum.photos/1920/1080);
+    background-size: cover;
+    background-position: center;
+}
+
+main {
+    max-width: 64ch;
+    padding: 1em;
+
+    font-family: sans-serif;
+    text-align: center;
+
+    display: grid;
+    gap: 1em;
+
+    border: 1px solid hsl(0, 0%, 50%);
+    border-radius: 0.1em;
+
+    background: white;
+
+    box-shadow: 0 0 0.3em hsl(0, 0%, 50%, 0.5);
+}

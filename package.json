@@ -17,6 +17,6 @@
     "typescript": "^5.4.5"
   },
   "dependencies": {
-    "@hansjovis/sharkdown": "file:../sharkdown"
+    "@hansjovis/sharkdown": "git+https://github.com/hansjovis/sharkdown"
   }
 }

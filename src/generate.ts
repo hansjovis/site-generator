@@ -11,6 +11,8 @@ const defaultConfig = {
         source: 'source',
         // Output folder.
         build: 'build',
+        // Templates folder.
+        templates: 'templates',
         // Folder with scripts, styles to copy over.
         lib: 'lib',
     }
@@ -19,7 +21,7 @@ const defaultConfig = {
 export default async function generate(config = defaultConfig) {
     const logger = new ConsoleLogger(config.debug ? LogLevel.DEBUG : LogLevel.LOG);
 
-    const templates = await loadTemplates();
+    const templates = await loadTemplates(config.paths.templates);
     
     logger.log("Generating exercise from source code...");
     logger.debug("Using config: ", config);
