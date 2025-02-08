@@ -6,7 +6,7 @@ Generates a simple static website from a folder of markdown files, a folder of t
 ## Installation and use
 1. Clone this repository.
     ```
-    git clone git@github.com:hansjovis/sharkdown.git
+    git clone git@github.com:hansjovis/site-generator.git
     ```
 2. Install dependencies using NPM.
     ```
