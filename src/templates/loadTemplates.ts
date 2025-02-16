@@ -5,6 +5,10 @@ import { TemplateMap } from "./TemplateMap.js";
 export default async function loadTemplates(directory = "templates"): Promise<TemplateMap> {
     const templates: TemplateMap = {};
     for (const fileName of await readdir(directory, "utf-8")) {
+        if (!fileName.endsWith(".js")) {
+            continue;
+        }
+        
         const templatePath = path.resolve("templates", fileName);
         // Remove file ending.
         const templateName = fileName.replace(/\..+$/, '');
