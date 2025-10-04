@@ -8,9 +8,9 @@
     "static-site-generate": "/bin/generate.js"
   },
   "scripts": {
-    "compile": "rm -rf ./dist && npx tsc",
+    "build": "rm -rf ./dist && tsc",
     "run": "node ./dist/generate.js --debug",
-    "test": "cd test && npx tsc && node --test ./dist/test"
+    "test": "cd test && tsc && node --test ./dist/test"
   },
   "devDependencies": {
     "@types/node": "^20.14.2",
