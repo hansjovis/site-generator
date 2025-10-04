@@ -6,11 +6,19 @@ import path from "path";
 import getFilePaths from "../util/getFilePaths.js";
 import Library from "../Library.js";
 
+const supportedFileTypes = ['.md', '.json'];
+
 export default async function load(directory: string, logger: Logger): Promise<Library> {
     const docs: Document[] = [];
     const entities = [];
     for (const filePath of await getFilePaths(directory)) {
         const relativePath = path.relative(directory, filePath);
+
+        if (!supportedFileTypes.includes(path.extname(relativePath))) {
+            logger.warn(`Skipping unsupported file type: "${relativePath}".`);
+            continue;
+        }
+        
         const [, id, fileType] = relativePath.match(/(.+)\.(.+)$/);
 
         logger.debug(`Parsing document "${relativePath}".`);
